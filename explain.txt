@@ -1,0 +1,1 @@
+commitlint: https://commitlint.js.org/guides/getting-started.html
