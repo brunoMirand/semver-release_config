@@ -51,6 +51,34 @@ O resultado deve ser algo como:
 husky - commit-msg script failed (code 1)
 ```
 
-Isso configura o `commitlint` com o `husky` para garantir que suas mensagens de commit estejam em conformidade com as convenções especificadas. Certifique-se de ajustar os scripts conforme necessário, dependendo da estrutura do seu projeto.
+Isso configura o [commitlint](2) com o [husky](3) para garantir que suas mensagens de commit estejam em conformidade com as convenções especificadas. Certifique-se de ajustar os scripts conforme necessário, dependendo da estrutura do seu projeto.
 
-[Referência](https://commitlint.js.org/guides/getting-started.html)
+#### Configurando o versionamento
+7. Versionando as releases de forma automáticas:
+  - 7.1 Instale [standard-version](1) como dependência de desenvolvimento
+  ```bash
+  npm install --save-dev standard-version
+  ```
+
+  - 7.2 Crie em seu package.json o seguinte comando no objeto de scripts
+  ```json
+    "release": "standard-version"
+  ```
+
+  - 7.3 Ao executar o comando `npm run release` os seguintes passos são efetuado:
+    - Análise dos Commits;
+    - Incremento da Versão do projeto package.json com base nos commits;
+    - Geração do CHANGELOG.md com informações sobre a versão, mudanças feitas;
+
+  - 7.4 Agora é enviar as mudanças para o repositório
+  ```sh
+  git push --follow-tags origin master.
+  ```
+
+Feito essas configurações teremos mais qualidade em nossas releases e trabalhando de forma padronizada.
+
+[Referência](2)
+
+[1]: https://github.com/conventional-changelog/standard-version
+[2]: https://commitlint.js.org/guides/getting-started.html
+[3]: https://typicode.github.io/husky/
