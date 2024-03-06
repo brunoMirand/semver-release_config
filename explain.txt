@@ -1,1 +1,21 @@
 commitlint: https://commitlint.js.org/guides/getting-started.html
+
+Steps:
+
+1. Install commitlint
+npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+2. Install husky
+npm install --save-dev husky
+
+3. init husky
+npx husky init
+
+4. create file about config commitlint following conversional
+echo "export default { extends: ['@commitlint/config-conventional'] };" > commitlint.config.js
+
+5. configure pre hook to commit msg
+echo "npx --no -- commitlint --edit" > .husky/commit-msg
+
+6. Test fake commit
+git commit -m "foo: bar" --allow-empty
