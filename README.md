@@ -71,8 +71,12 @@ Isso configura o [commitlint](2) com o [husky](3) para garantir que suas mensage
     - Geração do CHANGELOG.md com informações sobre a versão, mudanças feitas;
 
   - 7.4 Agora é enviar as mudanças para o repositório
-  ```sh
-  git push --follow-tags origin master.
+  ```bash
+  git push --follow-tags origin main.
+  ```
+  - 7.5 Lembre-se que pode criar um hook para isso, como por exemplo um pre-push:
+  ```bash
+  echo "npm run release" > .husky/pre-push
   ```
 
 Feito essas configurações teremos mais qualidade em nossas releases e trabalhando de forma padronizada.
