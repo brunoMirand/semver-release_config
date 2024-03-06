@@ -1,19 +1,27 @@
 {
   "name": "semver_config",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Projeto com objetivo de exercitar as configurações de commitlint, hooks e releases da aplicação.",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "release": "standard-version"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "semver",
+    "commit",
+    "best pratices",
+    "commit-msg",
+    "release"
+  ],
+  "author": "Bruno Miranda",
   "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
     "husky": "^9.0.11",
+    "standard-version": "^9.5.0",
     "tsup": "^8.0.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
