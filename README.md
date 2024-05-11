@@ -74,9 +74,25 @@ Isso configura o [commitlint](2) com o [husky](3) para garantir que suas mensage
   ```bash
   git push --follow-tags origin main.
   ```
-  - 7.5 Lembre-se que pode criar um hook para isso, como por exemplo um pre-push:
+  - 7.5 Lembre-se que pode criar um hook para perguntar no momento do push se o usuário deseja gerar uma nova versão ou não do proejeto, como por exemplo um pre-push:
   ```bash
-  echo "npm run release" > .husky/pre-push
+    #!/bin/sh
+
+    echo "> iniciando pre push :)"
+    exec < /dev/tty
+
+    while true; do
+      read -p "[pre-push hook] Deseja realisar o versionamento do projeto? (s/n)" sn
+      if [ "$sn" = "" ]; then
+        sn='s'
+      fi
+      case $sn in
+        [Ss] ) npm run release; break;;
+        [Nn] ) exit;;
+        * ) echo "Por favor responda s ou n para Sim ou não.";;
+      esac
+  done
+
   ```
 
 Feito essas configurações teremos mais qualidade em nossas releases e trabalhando de forma padronizada.

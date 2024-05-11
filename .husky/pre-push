@@ -1,1 +1,16 @@
-npm run release
+#!/bin/sh
+
+echo "> iniciando pre push :)"
+exec < /dev/tty
+
+while true; do
+  read -p "[pre-push hook] Deseja realisar o versionamento do projeto? (s/n)" sn
+  if [ "$sn" = "" ]; then
+    sn='s'
+  fi
+  case $sn in
+      [Ss] ) npm run release; break;;
+      [Nn] ) exit;;
+      * ) echo "Por favor responda s ou n para Sim ou não.";;
+  esac
+done
